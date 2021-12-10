@@ -11,6 +11,9 @@ universe u
 instance : Hashable Nat where
   hash n := UInt64.ofNat n
 
+instance : Hashable Char where
+  hash n := UInt64.ofNat n.toNat
+
 instance [Hashable α] [Hashable β] : Hashable (α × β) where
   hash | (a, b) => mixHash (hash a) (hash b)
 
