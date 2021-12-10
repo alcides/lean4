@@ -1658,6 +1658,9 @@ protected constant String.hash (s : @& String) : UInt64
 
 instance : Hashable String where
   hash := String.hash
+  
+instance : Hashable Char where
+  hash d := hash d.toNat
 
 namespace Lean
 
